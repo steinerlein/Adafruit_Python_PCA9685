@@ -47,6 +47,7 @@ SLEEP              = 0x10
 ALLCALL            = 0x01
 INVRT              = 0x10
 OUTDRV             = 0x04
+CUSTOM             = 0x0C
 
 
 logger = logging.getLogger(__name__)
@@ -72,8 +73,8 @@ class PCA9685(object):
             import Adafruit_GPIO.I2C as I2C
             i2c = I2C
         self._device = i2c.get_i2c_device(address, **kwargs)
-        self.set_all_pwm(0, 0)
-        self._device.write8(MODE2, OUTDRV)
+        #self.set_all_pwm(0, 0)
+        self._device.write8(MODE2, CUSTOM)
         self._device.write8(MODE1, ALLCALL)
         time.sleep(0.005)  # wait for oscillator
         mode1 = self._device.readU8(MODE1)
