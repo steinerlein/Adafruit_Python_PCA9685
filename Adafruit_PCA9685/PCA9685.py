@@ -47,7 +47,7 @@ SLEEP              = 0x10
 ALLCALL            = 0x01
 INVRT              = 0x10
 OUTDRV             = 0x04
-CUSTOM             = 0x0C
+CUSTOM             = 0b00011100
 
 
 logger = logging.getLogger(__name__)
